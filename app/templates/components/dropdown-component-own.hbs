@@ -1,0 +1,8 @@
+<div>
+    {{input
+        value=headVal
+        click=(action "setArray" listobj)
+        size=100
+    }}
+</div>
+{{yield headVal dropdownBool (action "filterByValue") (action "setHeadVal")}}

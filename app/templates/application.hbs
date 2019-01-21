@@ -1,3 +1,28 @@
-{{#dropdown-component listobj=names as |result|}}
-{{/dropdown-component}}
+<table width="100%">
+    <tr>
+        <td>
+            {{#dropdown-component listobj=names user=selectedUser as |DropdownObj|}}
+                {{#if  DropdownObj.keyName }}
+                    <div class="listDropDownBlue"  {{action DropdownObj.method}}>{{DropdownObj.name}}</div>
+                {{!-- {{else}}
+                    {{DropdownObj.headValue}} --}}
+                {{/if}}
+
+            {{/dropdown-component}}
+        </td>
+        <td>
+            {{#dropdown-component listobj=names user=selectedUser as |DropdownObj|}}
+                {{#if  DropdownObj.keyName }}
+                    <div class="listDropDownGreen"  {{action DropdownObj.method}}>{{DropdownObj.name}}</div>
+                {{!-- {{else}}
+                    {{DropdownObj.headValue}} --}}
+                {{/if}}
+            {{/dropdown-component}}
+        </td>
+    </tr>
+    
+</table>
+
+Selected User: {{selectedUser}}
+
 {{outlet}}

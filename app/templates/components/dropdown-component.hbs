@@ -4,6 +4,7 @@
         value=headVal
         click=(action "setArray" listobj)
         size=100
+        
     }}
     </div>
     <div style="border-width:3px 3px 3px 3px ;" >
@@ -13,15 +14,18 @@
                     id="filterDrop"
                     value=filterVal
                     size=100
-                    keyUp=(action "filterByValue")   
+                    keyUp=(action "filterByValue")
                 }}
             </div>
+            {{listObj}}
             <div style="border-style: solid;width:603px">
                 {{#each listObj as |list|}}
-                    <div class="listDropDown" onclick={{action "setHeadVal" list.name}}>{{list.name}}</div>
+                    {{yield  (hash keyName=true name=list.name method=(action "setHeadVal" list.name ) )  }}
+                    {{!-- <div class="{{dropDownStyle}}" onclick={{action "setHeadVal" list.name}}>{{list.name}}</div> --}}
                 {{/each}}
+                
             </div>
         {{/if}}
     </div>
 </div>
-{{yield headVal}}
+{{yield (hash keyName=false headValue=headVal) }}
