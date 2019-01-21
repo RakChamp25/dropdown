@@ -7,9 +7,7 @@ export default Component.extend({
     listObj : null ,
     filterVal : null ,
     listData : null ,
-    // mouseLeave() {
-    //     this.send("hideDrop");
-    // },
+   
     actions:{
         showDrop(){
             this.set('dropdownBool',true);
@@ -41,8 +39,8 @@ export default Component.extend({
             let dummy = [];
             for(let i=0 ; i < this.get('listData').length ; i++ )
             {
-                 if( this.listObj[i].name.toLowerCase().includes(this.get('filterVal').toLowerCase() )){
-                     dummy.push(this.get('listObj')[i]);
+                 if( this.listData[i].name.toLowerCase().includes(this.get('filterVal').toLowerCase() )){
+                     dummy.push(this.get('listData')[i]);
                  } 
             }
             this.set('listObj',dummy);
