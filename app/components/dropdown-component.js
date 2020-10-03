@@ -32,8 +32,8 @@ export default Component.extend({
         focusInput(){
             document.getElementById('filterDrop').focus();
         },
-        async setArray( ListDropdown ){
-            await this.send("showDrop");
+        setArray( ListDropdown ){
+            this.send("showDrop");
             this.setProperties({'listObj':ListDropdown,'listData':ListDropdown});
              this.send("focusInput");   
         },
