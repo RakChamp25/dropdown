@@ -1,31 +1,29 @@
 <div>
-    <div>
+  <div>
     {{input
         value=headVal
         click=(action "setArray" listobj)
         size=100
         
     }}
-    </div>
-    <div style="border-width:3px 3px 3px 3px ;" >
-        {{#if dropdownBool}}
-            <div>
-                {{input
-                    id="filterDrop"
-                    value=filterVal
-                    size=100
-                    keyUp=(action "filterByValue")
-                }}
-            </div>
-            {{listObj}}
-            <div style="border-style: solid;width:603px">
-                {{#each listObj as |list|}}
-                    {{yield  (hash keyName=true name=list.name method=(action "setHeadVal" list.name ) )  }}
-                    {{!-- <div class="{{dropDownStyle}}" onclick={{action "setHeadVal" list.name}}>{{list.name}}</div> --}}
-                {{/each}}
-                
-            </div>
-        {{/if}}
-    </div>
+  </div>
+  <div style="border-width:3px 3px 3px 3px ;" >
+    {{#if dropdownBool}}
+      <div>
+        {{input
+            id="filterDrop"
+            value=filterVal
+            size=100
+            keyUp=(action "filterByValue")
+        }}
+      </div>
+      <div style="border-style: solid;width:603px">
+        {{#each listObj as |list|}}
+          {{yield  (hash keyName=true name=list.name method=(action "setHeadVal" list.name ) )  }}
+            {{!-- <div class="{{dropDownStyle}}" onclick={{action "setHeadVal" list.name}}>{{list.name}}</div> --}}
+        {{/each}}
+      </div>
+    {{/if}}
+  </div>
 </div>
 {{yield (hash keyName=false headValue=headVal) }}
