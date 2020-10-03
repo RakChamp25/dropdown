@@ -1,26 +1,27 @@
 <table width="100%">
+  <tbody>
     <tr>
-        <td>
-            {{#dropdown-component listobj=names user=selectedUser as |DropdownObj|}}
-                {{#if  DropdownObj.keyName }}
-                    <div class="listDropDownBlue"  {{action DropdownObj.method}}>{{DropdownObj.name}}</div>
-                {{!-- {{else}}
-                    {{DropdownObj.headValue}} --}}
-                {{/if}}
+      <td>
+        {{#dropdown-component listobj=names user=selectedUser as |DropdownObj|}}
+          {{#if  DropdownObj.keyName }}
+            <div role="button" class="listDropDownBlue" {{action DropdownObj.method}}>{{DropdownObj.name}}</div>
+            {{!-- {{else}}
+                {{DropdownObj.headValue}} --}}
+          {{/if}}
 
-            {{/dropdown-component}}
-        </td>
-        <td>
-            {{#dropdown-component listobj=names user=selectedUser as |DropdownObj|}}
-                {{#if  DropdownObj.keyName }}
-                    <div class="listDropDownGreen"  {{action DropdownObj.method}}>{{DropdownObj.name}}</div>
-                {{!-- {{else}}
-                    {{DropdownObj.headValue}} --}}
-                {{/if}}
-            {{/dropdown-component}}
-        </td>
+        {{/dropdown-component}}
+      </td>
+      <td>
+        {{#dropdown-component listobj=names user=selectedUser as |DropdownObj|}}
+          {{#if  DropdownObj.keyName }}
+            <div role="button" class="listDropDownGreen" {{action DropdownObj.method}}>{{DropdownObj.name}}</div>
+            {{!-- {{else}}
+                {{DropdownObj.headValue}} --}}
+          {{/if}}
+        {{/dropdown-component}}
+      </td>
     </tr>
-    
+  </tbody>
 </table>
 
 Selected User: {{selectedUser}}
